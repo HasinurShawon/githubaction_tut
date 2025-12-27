@@ -18,3 +18,8 @@ jobs:
         run: cat index.html
       - name: change and read directory
         run: cat ./html/custom.html
+      - name: install Nginx
+        run: |
+          chmod +x install_dependencies.sh
+          ./install_dependencies.sh
+          curl -f http://localhost
