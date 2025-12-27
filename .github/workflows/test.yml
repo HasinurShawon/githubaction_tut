@@ -1,0 +1,14 @@
+name: Test CI/CD
+
+on:
+  push:
+    branches:
+      - main
+job:
+  read_the_file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git clone
+        uses: actions/checkout@v2
+      - name: read the html file
+        run: cat index.html
