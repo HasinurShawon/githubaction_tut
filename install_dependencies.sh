@@ -3,10 +3,12 @@
 set -e  # fail fast
 
 sudo apt update -y
+echo "-------Installing Nginx-------"
 sudo apt install -y nginx
 sudo systemctl start nginx
+echo "-------Nginx Installed-------"
 
-echo "Installing Node.js"
+echo "-------Installing Node.js-------"
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
 
