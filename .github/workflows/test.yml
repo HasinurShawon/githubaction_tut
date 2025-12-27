@@ -23,6 +23,6 @@ jobs:
           chmod +x install_dependencies.sh
           ./install_dependencies.sh
       - name: test nginx
-          run:curl -fsS http://localhost > /dev/null
+        run: curl -fsS http://localhost > /dev/null
 
 
