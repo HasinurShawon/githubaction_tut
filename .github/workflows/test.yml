@@ -10,5 +10,9 @@ jobs:
     steps:
       - name: git clone
         uses: actions/checkout@v2
+      - name: install node jobs
+        uses: actions/setup-node@v6
+      - name: node version
+        uses: node -v
       - name: read the html file
         run: cat index.html
