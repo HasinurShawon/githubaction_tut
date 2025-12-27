@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-job:
+jobs:
   read_the_file:
     runs-on: ubuntu-latest
     steps:
