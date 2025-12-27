@@ -22,4 +22,5 @@ jobs:
         run: |
           chmod +x install_dependencies.sh
           ./install_dependencies.sh
-          curl -f http://localhost
+          curl -fI http://localhost
+
