@@ -16,3 +16,5 @@ jobs:
         run: node -v
       - name: read the html file
         run: cat index.html
+      - name: change and read directory
+        run: cat ./html/custom.html
