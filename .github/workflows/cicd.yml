@@ -33,9 +33,10 @@ jobs:
         uses: actions/checkout@4
       - name: Setup NGINX
         uses: nyurik/action-setup-nginx@v1
-        run:
-        echo "Hello, world!" > "${{ steps.nginx.outputs.html-dir }}/index.html"
-      
+        run: |
+          echo "Hello, world!" > "${{ steps.nginx.outputs.html-dir }}/index.html"      
+          curl http://localhost:${{ steps.nginx.outputs.port }}
+
       - name: Install Dependencies
         run: npm install
       - name: Restart PM@ server
