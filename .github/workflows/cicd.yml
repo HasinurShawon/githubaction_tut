@@ -1,0 +1,42 @@
+name: Test CI/CD
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  testing:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    steps:
+      - name: git clone
+        uses: actions/checkout@v4
+      - name: install node jobs
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 18
+      - name: read the html file
+        run: cat index.html
+      - name: change and read directory
+        run: cat ./html/custom.html
+      - name: install Nginx and PM2
+        run: |
+          chmod +x install_dependencies.sh
+          ./install_dependencies.sh
+  live-server: 
+    if: github.ref == 'refs/heads/main'
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@4
+      - name: Setup NGINX
+        uses: nyurik/action-setup-nginx@v1
+        run:
+        echo "Hello, world!" > "${{ steps.nginx.outputs.html-dir }}/index.html"
+      
+      - name: Install Dependencies
+        run: npm install
+      - name: Restart PM@ server
+        run: pm2 restart "Server" || true
