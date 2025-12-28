@@ -5,8 +5,8 @@ on:
     branches:
       - main
 jobs:
-  read_the_file:
-    runs-on: ubuntu-latest
+  testing:
+    runs-on: self-hosted
     steps:
       - name: git clone
         uses: actions/checkout@v2
