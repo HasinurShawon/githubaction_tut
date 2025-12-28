@@ -33,6 +33,7 @@ jobs:
         uses: actions/checkout@4
       - name: Setup NGINX
         uses: nyurik/action-setup-nginx@v1
+      - name: Write HTML and test NGINX
         run: |
           echo "Hello, world!" > "${{ steps.nginx.outputs.html-dir }}/index.html"      
           curl http://localhost:${{ steps.nginx.outputs.port }}
